@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LaunchLens</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="sidebar" aria-label="Launch brief controls">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">LL</div>
+          <div>
+            <h1>LaunchLens</h1>
+            <p>Market launch workbench</p>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Market</h2>
+            <span id="apiStatus" class="status-pill">Mock mode</span>
+          </div>
+
+          <label class="field-label" for="region">Region</label>
+          <select id="region" class="select">
+            <option value="IN">India</option>
+            <option value="US">United States</option>
+            <option value="GB">United Kingdom</option>
+            <option value="CA">Canada</option>
+            <option value="AU">Australia</option>
+          </select>
+
+          <label class="field-label" for="apiUrl">API URL</label>
+          <input id="apiUrl" class="input" type="url" value="http://127.0.0.1:8000/chat" />
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Signal Mix</h2>
+            <span id="intentTag" class="subtle-tag">launch_review</span>
+          </div>
+
+          <div class="metric">
+            <span>Demand</span>
+            <div class="meter" aria-hidden="true"><span id="demandBar"></span></div>
+            <strong id="demandScore">7.4</strong>
+          </div>
+          <div class="metric">
+            <span>Supply</span>
+            <div class="meter" aria-hidden="true"><span id="supplyBar"></span></div>
+            <strong id="supplyScore">6.8</strong>
+          </div>
+          <div class="metric">
+            <span>Fit</span>
+            <div class="meter" aria-hidden="true"><span id="fitBar"></span></div>
+            <strong id="fitScore">7.1</strong>
+          </div>
+        </section>
+
+        <section class="panel compact">
+          <h2>Quick Prompts</h2>
+          <button class="prompt-chip" type="button">Should I launch a stainless-steel insulated water bottle under ₹1,500?</button>
+          <button class="prompt-chip" type="button">What about the US market?</button>
+          <button class="prompt-chip" type="button">Compare it with a cheaper bottle alternative.</button>
+          <button class="prompt-chip" type="button">What review gaps should I target?</button>
+        </section>
+      </aside>
+
+      <section class="workspace" aria-label="LaunchLens chat">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Founder decision cockpit</p>
+            <h2>Ask for a Go, No-Go, or Niche read before you launch.</h2>
+          </div>
+          <button id="newThread" class="icon-button" type="button" title="Start a new thread" aria-label="Start a new thread">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </header>
+
+        <section class="insight-strip" aria-label="Current launch summary">
+          <div>
+            <span class="label">Verdict</span>
+            <strong id="verdictLabel">Niche</strong>
+          </div>
+          <div>
+            <span class="label">Price Band</span>
+            <strong id="priceBand">₹700-₹1,500</strong>
+          </div>
+          <div>
+            <span class="label">Best Angle</span>
+            <strong id="bestAngle">Durability + giftability</strong>
+          </div>
+        </section>
+
+        <section id="messages" class="messages" aria-live="polite">
+          <article class="message assistant">
+            <div class="avatar" aria-hidden="true">L</div>
+            <div class="bubble">
+              <p class="message-meta">LaunchLens</p>
+              <p>Tell me the product, target region, and any price constraint. I will blend demand, competition, pricing, and review-gap signals into a launch brief.</p>
+            </div>
+          </article>
+        </section>
+
+        <form id="chatForm" class="composer">
+          <textarea id="messageInput" rows="3" placeholder="Example: Should I launch a stainless-steel insulated water bottle in India under ₹1,500?"></textarea>
+          <div class="composer-actions">
+            <span id="threadLabel">Thread: new</span>
+            <button id="sendButton" class="send-button" type="submit">
+              <span aria-hidden="true">→</span>
+              Send
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

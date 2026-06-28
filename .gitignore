@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+checkpoints.sqlite
+long_term_memory.sqlite
+.venv/

@@ -1,0 +1,45 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	capture_user_message(capture_user_message)
+	recall_long_term_memory(recall_long_term_memory)
+	route_request(route_request)
+	summarize_history(summarize_history)
+	google_trends_research(google_trends_research)
+	google_shopping_research(google_shopping_research)
+	amazon_supply_research(amazon_supply_research)
+	fuse_research(fuse_research)
+	pricing_analysis(pricing_analysis)
+	review_gap_analysis(review_gap_analysis)
+	agent_node(agent_node)
+	append_assistant_message(append_assistant_message)
+	store_long_term_memory(store_long_term_memory)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> capture_user_message;
+	agent_node --> append_assistant_message;
+	amazon_supply_research --> fuse_research;
+	append_assistant_message --> store_long_term_memory;
+	capture_user_message --> recall_long_term_memory;
+	fuse_research --> agent_node;
+	google_shopping_research --> fuse_research;
+	google_trends_research --> fuse_research;
+	pricing_analysis --> append_assistant_message;
+	recall_long_term_memory --> route_request;
+	review_gap_analysis --> append_assistant_message;
+	route_request -.-> amazon_supply_research;
+	route_request -.-> google_shopping_research;
+	route_request -.-> google_trends_research;
+	route_request -.-> pricing_analysis;
+	route_request -.-> review_gap_analysis;
+	route_request -.-> summarize_history;
+	summarize_history --> amazon_supply_research;
+	summarize_history --> google_shopping_research;
+	summarize_history --> google_trends_research;
+	store_long_term_memory --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

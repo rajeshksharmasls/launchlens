@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "launchlens"
+version = "0.1.0"
+description = "LaunchLens is a LangGraph-powered market-intelligence agent for product launch decisions"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "langgraph",
+  "langchain",
+  "langchain-openai",
+  "python-dotenv",
+  "requests"
+]
+
+[project.optional-dependencies]
+api = [
+  "fastapi",
+  "uvicorn"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
